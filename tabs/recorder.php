@@ -1,18 +1,7 @@
 <?php
-    include "config.php";
-
+    include "../php/config.php";
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>iMedia Security Solutions</title>
-</head>
-<body>
-
-</body>
-</html>
-=======
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,23 +17,22 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="../assets/css/animate.min.css" rel="stylesheet"/>
 
     <!--  Paper Dashboard core CSS    -->
-    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+    <link href="../assets/css/paper-dashboard.css" rel="stylesheet"/>
 
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="../assets/css/demo.css" rel="stylesheet" />
 
 
     <!--  Fonts and icons     -->
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/themify-icons.css" rel="stylesheet">
-
+    <link href="../assets/css/themify-icons.css" rel="stylesheet">
 
 </head>
 <body>
@@ -171,14 +159,14 @@
                     <div class="card">
                         <div class="container-fluid">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="index.html">Camera</a></li>
-                                <li><a href="tabs/recorder.html">Recorder</a></li>
-                                <li><a href="tabs/accessories.html">Accessories</a></li>
-                                <li><a href="tabs/cable.html">Cable</a></li>
-                                <li><a href="tabs/switch.html">Switch</a></li>
-                                <li><a href="tabs/wireless.html">Wireless</a></li>
-                                <li><a href="tabs/router.html">Router</a></li>
-                                <li><a href="tabs/power.html">Power Supply</a></li>
+                                <li><a href="../index.php">Camera</a></li>
+                                <li  class="active"><a href="recorder.php">Recorder</a></li>
+                                <li><a href="accessories.html">Accessories</a></li>
+                                <li><a href="cable.html">Cable</a></li>
+                                <li><a href="switch.html">Switch</a></li>
+                                <li><a href="wireless.html">Wireless</a></li>
+                                <li><a href="router.html">Router</a></li>
+                                <li><a href="power.html">Power Supply</a></li>
                             </ul>
 
                             <table class="table table-striped">
@@ -190,30 +178,37 @@
                                     <th>Model</th>
                                     <th>Name</th>
                                     <th>Type</th>
-                                    <th>Camera Type</th>
                                     <th>POE</th>
                                     <th>Specs</th>
-                                    <th>Lens</th>
+                                    <th>Ports</th>
                                     <th>Price</th>
                                     <th></th>
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <td><input type="checkbox" name="checkbox[]" class="form-control" id="checkbox[]"></td>
-
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
+                                    <?php 
+                                        $sql = "SELECT * FROM recorder";
+                                        $result = mysqli_query($conn,$sql);
+                                        if(mysqli_num_rows($result)>0)
+                                        {
+                                            while($row=mysqli_fetch_array($result))
+                                            {
+                                    ?>
+                                    <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo "<img src=../images/recorder/".$row['image'].">"?></td>
+                                    <td><?php echo $row['brand']; ?></td>
+                                    <td><?php echo $row['model']; ?></td>
+                                    <td><?php echo $row['name']; ?></td>
+                                    <td><?php echo $row['type']; ?></td>
+                                    <td><?php echo $row['poe']; ?></td>
+                                    <td><?php echo $row['specs']; ?></td>
+                                    <td><?php echo $row['ports']; ?></td>
+                                    <td><?php echo $row['price']; ?></td>
                                     <td><a href="#">Edit Item</a></td>
                                     <td><a href="#">Add Item to Quotation</td>
+                                    <?php   }
+                                        }   ?>
                                 </tbody>
                             </table>
                         </div>
@@ -258,27 +253,26 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="assets/js/bootstrap-checkbox-radio.js"></script>
+	<script src="../assets/js/bootstrap-checkbox-radio.js"></script>
 
 	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
+	<script src="../assets/js/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
+    <script src="../assets/js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-	<script src="assets/js/paper-dashboard.js"></script>
+	<script src="../assets/js/paper-dashboard.js"></script>
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+	<script src="../assets/js/demo.js"></script>
 
 
 </html>
->>>>>>> update
