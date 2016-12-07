@@ -44,10 +44,116 @@
     <link href="assets/css/themify-icons.css" rel="stylesheet">
 
 
+
+
+
 </head>
 <body>
 
 <div class="wrapper">
+
+    <!--ADD ITEM MODAL-->
+    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Item</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group">
+                                <label>Item Type:</label>
+                                <select class="form-control" id="item-type" name="item-type">
+                                    <option value="none">None</option>
+                                    <option value="camera">Camera</option>
+                                    <option value="recorder">Recorder</option>
+                                    <option value="accessories">Accessories</option>
+                                    <option value="cable">Cable</option>
+                                    <option value="switch">Switch</option>
+                                    <option value="wireless">Wireless</option>
+                                    <option value="router">Router</option>
+                                    <option value="power">Power Supply</option>
+                                </select>
+                            </div>
+                        
+                        <form action="" method="" id="form-camera" name="form-camera" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Type:</label>
+                                <select class="form-control">
+                                    <option value="bullet">Bullet</option>
+                                    <option value="dome">Dome</option>
+                                    <option value="ptz">PTZ</option>
+                                    <option value="box">Box</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Camera Type:</label>
+                                <select class="form-control">
+                                    <option value="IP">IP</option>
+                                    <option value="Analog">Analog</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>POE:</label>
+                                <input type="radio" class="radio-inline" name="poe">Yes
+                                <input type="radio" class="radio-inline" name="poe">No
+                            </div>
+
+                            <div class="form-group">
+                                <label>Specifications:</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Specifications:</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Lens:</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="sidebar" data-background-color="white" data-active-color="danger">
 
     <!--
@@ -224,9 +330,9 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            
 
-                            <div class="tab-content">
+                            
                                 <div id="recorder" class="tab-pane fade">
                                     <table class="table table-striped">
                                         <thead>
@@ -271,9 +377,246 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+
+                                <div id="accessories" class="tab-pane fade">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th></th>
+                                            <th>ID</th>
+                                            <th>Image</th>
+                                            <th>Brand</th>
+                                            <th>Model</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th></th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $sql = "SELECT * FROM accessories";
+                                                $result = mysqli_query($conn,$sql);
+                                                if(mysqli_num_rows($result)>0)
+                                                {
+                                                    while($row=mysqli_fetch_array($result))
+                                                    {
+                                            ?>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo "<img src=images/accessories/".$row['image'] .">" ?></td>
+                                            <td><?php echo $row['brand']; ?></td>
+                                            <td><?php echo $row['model']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
+                                            <td><a href="#">Edit Item</a></td>
+                                            <td><a href="#">Add Item to Quotation</td>
+                                            <?php   }
+                                                }   ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="cable" class="tab-pane fade">
+                                    <table class="table table-striped">
+                                        <thead>
+                                           
+                                            <th></th>
+                                            <th>ID</th>
+                                            <th>Image</th>
+                                            <th>Brand</th>
+                                            <th>Model</th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Price</th>
+                                            <th></th>
+                                            <th></th>
+                                            
+                                        </thead>
+                                        <tbody>
+                                             <?php 
+                                                $sql = "SELECT * FROM cable";
+                                                $result = mysqli_query($conn,$sql);
+                                                if(mysqli_num_rows($result)>0)
+                                                {
+                                                    while($row=mysqli_fetch_array($result))
+                                                    {
+                                            ?>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo "<img src=images/cable/".$row['image'].">"?></th>
+                                            <td><?php echo $row['brand']; ?></td>
+                                            <td><?php echo $row['model']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['type']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
+                                            <td><a href="#">Edit Item</a></td>
+                                            <td><a href="#">Add Item to Quotation</td>
+                                            <?php   }
+                                                }   ?>
+                                        </tbody>
+                                     </table>
+                                </div>
+
+                                <div id="switch" class="tab-pane fade">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th></th>
+                                            <th>ID</th>
+                                            <th>Image</th>
+                                            <th>Brand</th>
+                                            <th>Model</th>
+                                            <th>Name</th>
+                                            <th>Ports</th>
+                                            <th>Price</th>
+                                            <th></th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $sql = "SELECT * FROM switch";
+                                                $result = mysqli_query($conn,$sql);
+                                                if(mysqli_num_rows($result)>0)
+                                                {
+                                                    while($row=mysqli_fetch_array($result))
+                                                    {
+                                            ?>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo "<img src=images/switch/".$row['image'].">"?></td>
+                                            <td><?php echo $row['brand']; ?></td>
+                                            <td><?php echo $row['model']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['ports']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
+                                            <td><a href="#">Edit Item</a></td>
+                                            <td><a href="#">Add Item to Quotation</td>
+                                            <?php   }
+                                                }   ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="wireless" class="tab-pane fade">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th></th>
+                                            <th>ID</th>
+                                            <th>Image</th>
+                                            <th>Brand</th>
+                                            <th>Model</th>
+                                            <th>Name</th>
+                                            <th>Frequency</th>
+                                            <th>Speed</th>
+                                            <th>Price</th>
+                                            <th></th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $sql = "SELECT * FROM wireless";
+                                                $result = mysqli_query($conn,$sql);
+                                                if(mysqli_num_rows($result)>0)
+                                                {
+                                                    while($row=mysqli_fetch_array($result))
+                                                    {
+                                            ?>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo "<img src=images/wireless/".$row['image'].">"?></td>
+                                            <td><?php echo $row['brand']; ?></td>
+                                            <td><?php echo $row['model']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['frequency']; ?></td>
+                                            <td><?php echo $row['speed']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
+                                            <td><a href="#">Edit Item</a></td>
+                                            <td><a href="#">Add Item to Quotation</td>
+                                            <?php   }
+                                                }   ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="router" class="tab-pane fade">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th></th>
+                                            <th>ID</th>
+                                            <th>Image</th>
+                                            <th>Brand</th>
+                                            <th>Model</th>
+                                            <th>Name</th>
+                                            <th>Capability</th>
+                                            <th>Price</th>
+                                            <th></th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $sql = "SELECT * FROM router";
+                                                $result = mysqli_query($conn,$sql);
+                                                if(mysqli_num_rows($result)>0)
+                                                {
+                                                    while($row=mysqli_fetch_array($result))
+                                                    {
+                                            ?>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo "<img src=images/router/".$row['image'].">"?></td>
+                                            <td><?php echo $row['brand']; ?></td>
+                                            <td><?php echo $row['model']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['wireless-capability']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
+                                            <td><a href="#">Edit Item</a></td>
+                                            <td><a href="#">Add Item to Quotation</td>
+                                            <?php   }
+                                                }   ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="power" class="tab-pane fade">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th></th>
+                                            <th>ID</th>
+                                            <th>Image</th>
+                                            <th>Brand</th>
+                                            <th>Model</th>
+                                            <th>Name</th>
+                                            <th>Channels</th>
+                                            <th>Price</th>
+                                            <th></th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $sql = "SELECT * FROM power";
+                                                $result = mysqli_query($conn,$sql);
+                                                if(mysqli_num_rows($result)>0)
+                                                {
+                                                    while($row=mysqli_fetch_array($result))
+                                                    {
+                                            ?>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo "<img src=images/router/".$row['image'].">"?></td>
+                                            <td><?php echo $row['brand']; ?></td>
+                                            <td><?php echo $row['model']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['channels']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
+                                            <td><a href="#">Edit Item</a></td>
+                                            <td><a href="#">Add Item to Quotation</td>
+                                            <?php   }
+                                                }   ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> <!--End Of Tab Content-->
                         </div>
-                    </div>
+                    </div><!--End Of Tab Card-->
+                    <button type="button" class="btn btn-primary" id="add-item" data-toggle="modal" data-target=".bs-example-modal-lg">Add Item</button>
                 </div>
             </div>
         </div>
@@ -310,20 +653,16 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".nav-tabs a").click(function(){
-            $(this).tab('show');
-            $('.nav-tabs a:last').tab('hide') 
-        });
-    });
-</script>
 
 </body>
 
     <!--   Core JS Files   -->
     <script src="assets/js/jquery-3.1.1.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--Custom JS-->
+    <script src="assets/js/add-item.js" type="text/javascript"></script>
+    <script src="assets/js/item-type.js" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="assets/js/bootstrap-checkbox-radio.js"></script>
@@ -334,8 +673,6 @@
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="assets/js/paper-dashboard.js"></script>
