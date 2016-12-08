@@ -80,7 +80,7 @@
 
                         <!--CAMERA FORM-->
                         
-                        <form action="" method="" id="form-camera" name="form-camera" style="display: none;">
+                        <form action="" method="" id="formCamera" name="form-camera" style="display: none;">
                             
                             <div class="form-group">
                                 <label>Image:</label>
@@ -108,7 +108,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Camera Type:</label>
+                                <label>Camera Type: (IP/Analog)</label>
                                 <select class="form-control" name="c-type">
                                     <option value="IP">IP</option>
                                     <option value="Analog">Analog</option>
@@ -882,6 +882,7 @@
                         </div>
                     </div><!--End Of Tab Card-->
                     <button type="button" class="btn btn-primary" id="add-item" data-toggle="modal" data-target=".bs-example-modal-lg">Add Item</button>
+                    <button type="button" class="btn btn-error" id="delete-item">Delete Item</button>
                 </div>
             </div>
         </div>
