@@ -77,27 +77,29 @@
                                     <option value="power">Power Supply</option>
                                 </select>
                             </div>
+
+                        <!--CAMERA FORM-->
                         
                         <form action="" method="" id="form-camera" name="form-camera" style="display: none;">
                             
                             <div class="form-group">
                                 <label>Image:</label>
-                                <input type="file" class="form-control">
+                                <input type="file" class="form-control" name="image">
                             </div>
 
                             <div class="form-group">
                                 <label>Brand:</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="brand">
                             </div>
 
                             <div class="form-group">
                                 <label>Model:</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="model">
                             </div>
 
                             <div class="form-group">
                                 <label>Type:</label>
-                                <select class="form-control">
+                                <select class="form-control" name="type">
                                     <option value="bullet">Bullet</option>
                                     <option value="dome">Dome</option>
                                     <option value="ptz">PTZ</option>
@@ -107,7 +109,7 @@
 
                             <div class="form-group">
                                 <label>Camera Type:</label>
-                                <select class="form-control">
+                                <select class="form-control" name="c-type">
                                     <option value="IP">IP</option>
                                     <option value="Analog">Analog</option>
                                 </select>
@@ -121,22 +123,285 @@
 
                             <div class="form-group">
                                 <label>Specifications:</label>
-                                <textarea class="form-control"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Specifications:</label>
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" name="specs"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Lens:</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="lens">
                             </div>
 
                             <div class="form-group">
                                 <label>Price</label>
-                                <input type="number" class="form-control">
+                                <input type="number" class="form-control" name="price">
+                            </div>
+
+                        </form>
+
+                        <!--RECORDER FORM-->
+                        <form action="" method="" id="form-recorder" name="form-recorder" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control" name="brand">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control" name="model">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="name" class="form-control" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Type:</label>
+                                <select class="form-control" name="type">
+                                    <option value="NVR">NVR</option>
+                                    <option value="DVR">DVR</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>POE:</label>
+                                <input type="radio" class="radio-inline" name="poe">Yes
+                                <input type="radio" class="radio-inline" name="poe">No
+                            </div>
+
+                            <div class="form-group">
+                                <label>Specifications:</label>
+                                <textarea class="form-control" name="specs"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ports:</label>
+                                <input type="number" class="form-control" name="ports">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
+
+                        </form>
+
+                        <!--ACCESSORIES FORM-->
+                        <form action="" method="" id="form-accessories" name="form-accessories" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control" name="brand">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control" name="model">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="name" class="form-control" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
+
+                        </form>
+
+                        <!--CABLE FORM-->
+                        <form action="" method="" id="form-cable" name="form-cable" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control" name="brand">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control" name="model">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="name" class="form-control" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Type:</label>
+                                <select class="form-control" name="type">
+                                    <option value="NVR">NVR</option>
+                                    <option value="DVR">DVR</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
+
+                        </form>
+
+                        <!--SWITCH FORM-->
+                        <form action="" method="" id="form-switch" name="form-switch" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control" name="brand">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control" name="model">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="name" class="form-control" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ports:</label>
+                                <input type="number" class="form-control" name="ports">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
+
+                        </form>
+
+                        <!--WIRELESS FORM-->
+                        <form action="" method="" id="form-wireless" name="form-wireless" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control" name="brand">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control" name="model">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="name" class="form-control" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Frequency:</label>
+                                <input type="text" class="form-control" name="frequency">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Speed:</label>
+                                <input type="text" class="form-control" name="speed">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
+
+                        </form>
+
+                        <!--ROUTER FORM-->
+                        <form action="" method="" id="form-router" name="form-router" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control" name="brand"> 
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control" name="model">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="name" class="form-control" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Wireless Capability:</label>
+                                <input type="radio" class="radio-inline" name="wireless-capability" value="yes">Yes
+                                <input type="radio" class="radio-inline" name="wireless-capability" value="no">No
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
+
+                        </form>
+
+                        <!--POWER SUPPLY FORM-->
+                        <form action="" method="" id="form-power" name="form-power" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Brand:</label>
+                                <input type="text" class="form-control" name="brand">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Model:</label>
+                                <input type="text" class="form-control" name="model">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="name" class="form-control" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Channels:</label>
+                                <input type="number" class="form-control" name="channels">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price">
                             </div>
 
                         </form>
@@ -145,7 +410,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-primary" id="add">Add</button>
                 </div>
 
             </div>
