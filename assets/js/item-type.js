@@ -59,17 +59,15 @@ $(document).ready(function(){
 			$.ajax({
 				url: "php/add-item.php",
 				type: "post",
-				dataType: "json",
 				data: params,
 				success: function(data, result){
 					if(result == "success"){
-						alert("SUCCESS!");
+						console.log(data);
 					}
 				}, error: function(jqXHR, error){
+					console.log(params);
 					console.log("Error");
-					alert(jqXHR.status);
-					console.log(jqXHR.status);
-					alert(error);
+					console.log("Status: " + jqXHR.status);
 					console.log(error);
 				}
 			});

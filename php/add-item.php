@@ -1,5 +1,5 @@
 <?php
-	include "config.php";
+	include("config.php");
 	
 	foreach ($_POST as $key => $value) {
 	    if(empty($value)){
@@ -12,23 +12,26 @@
 	$category = $_POST['category'];
 
 	if($category == "camera"){
-		insertItem('camera', '', $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['c-type'], $_POST['poe'], $_POST['specs'], $_POST['lens'], $_POST['price'], '', '', '', '', '', '', '');
+		insertItem($columnValue, 'camera', '', $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['c-type'], $_POST['poe'], $_POST['specs'], $_POST['lens'], $_POST['price'], '', '', '', '', '', '', '');
 	}
 
 
-	function insertItem($category, $image, $brand, $model, $type, $cType, $poe, $specs, $lens, $price, $ports, $vcategory, $frequency, $speed, $bands, $capability, $channels){
-		$sql = "SELECT * FROM " . $category .".COLUMNS";
+	function insertItem($columnValue, $category, $image, $brand, $model, $type, $cType, $poe, $specs, $lens, $price, $ports, $vcategory, $frequency, $speed, $bands, $capability, $channels){
+		include("config.php");
+		$sql = "SELECT column_name FROM " . $category ." WHERE column_name != 'id'";
 		$result = mysqli_query($conn, $sql);
 		if(!$result){
-			die("Error: " . $mysqli_error($result));
+			die("Error: " . mysqli_error($conn));
 		}
 		while( $row = mysqli_fetch_assoc($result)){
-    		$columnArray[] = $row;
+    		$columnArray = array($row);
 		}
-		$sql2 = "INSERT INTO(". implode(',', $columnArray) .") VALUES(". implode(',', $columnValue) .")";
+		$implodeArray = implode(',', $columnArray[0]);
+		$implodeValue = implode(',', $columnValue[0]);
+		$sql2 = "INSERT INTO ". $category ."(". $implodeArray .") VALUES(". $implodeValue .")";
 		$result2 = mysqli_query($conn, $sql2);
 		if(!$result2){
-			die("Error: " . $mysqli_error($result2));
+			die("Error: " . mysqli_error($conn));
 		}
 	}
 
