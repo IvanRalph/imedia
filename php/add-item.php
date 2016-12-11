@@ -1,6 +1,6 @@
 <?php
 	include "config.php";
-
+	
 	foreach ($_POST as $key => $value) {
 	    if(empty($value)){
 	    	$value = "";
@@ -31,4 +31,6 @@
 			die("Error: " . $mysqli_error($result2));
 		}
 	}
+
+	echo "success";
 ?>

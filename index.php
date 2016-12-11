@@ -80,8 +80,7 @@
 
                         <!--CAMERA FORM-->
                         
-                        <form action="" method="" id="formCamera" name="form-camera" style="display: none;">
-                            
+                        <form action="" method="" id="formCamera" name="formCamera" style="display: none;">
                             <div class="form-group">
                                 <label>Image:</label>
                                 <input type="file" class="form-control" name="image">

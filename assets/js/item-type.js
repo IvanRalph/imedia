@@ -53,18 +53,24 @@ $(document).ready(function(){
 			params += fieldName + '=' + fieldValue + '&';
 		}
 
-		formCamera += 'category=' + category; 
+		params += 'category=' + category; 
 
 		if(category == "camera"){
 			$.ajax({
-				url: "../../php/add-item.php",
+				url: "php/add-item.php",
 				type: "post",
 				dataType: "json",
-				data: formCamera,
+				data: params,
 				success: function(data, result){
 					if(result == "success"){
 						alert("SUCCESS!");
 					}
+				}, error: function(jqXHR, error){
+					console.log("Error");
+					alert(jqXHR.status);
+					console.log(jqXHR.status);
+					alert(error);
+					console.log(error);
 				}
 			});
 		}
