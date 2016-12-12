@@ -569,26 +569,28 @@
                                         </thead>
                                         <tbody>
                                             <?php 
-                                                $sql = "SELECT * FROM camera";
+                                                $sql = "SELECT * FROM camera ";
                                                 $result = mysqli_query($conn,$sql);
                                                 if(mysqli_num_rows($result)>0)
                                                 {
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" name="checkbox[]" class="form-control" id="checkbox[]"></td>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/camera/".$row['image'].">" ?></td>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['type']; ?></td>
-                                            <td><?php echo $row['c-type']; ?></td>
-                                            <td><?php echo $row['poe']; ?></td>
-                                            <td><?php echo $row['specs']; ?></td>
-                                            <td><?php echo $row['lens']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
-                                            <td><a href="#">Edit Item</a></td>
-                                            <td><a href="#">Add Item to Quotation</td>
+                                            <tr>
+                                                <td><input type="checkbox" name="checkbox[]" class="form-control" id="checkbox[]"></td>
+                                                <td><?php echo $row['id']; ?></td>
+                                                <td><?php echo "<img src=images/camera/".$row['image'].">" ?></td>
+                                                <td><?php echo $row['brand']; ?></td>
+                                                <td><?php echo $row['model']; ?></td>
+                                                <td><?php echo $row['type']; ?></td>
+                                                <td><?php echo $row['c-type']; ?></td>
+                                                <td><?php echo $row['poe']; ?></td>
+                                                <td><?php echo $row['specs']; ?></td>
+                                                <td><?php echo $row['lens']; ?></td>
+                                                <td><?php echo $row['price']; ?></td>
+                                                <td><a href="#">Edit Item</a></td>
+                                                <td><a href="#">Add Item to Quotation</td>
+                                            </tr>
                                             <?php   }
                                                 }   ?>
                                         </tbody>
@@ -823,16 +825,18 @@
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/router/".$row['image'].">"?></td>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['wireless-capability']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
-                                            <td><a href="#">Edit Item</a></td>
-                                            <td><a href="#">Add Item to Quotation</td>
+                                            <tr>
+                                                <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                                <td><?php echo $row['id']; ?></td>
+                                                <td><?php echo "<img src=images/router/".$row['image'].">"?></td>
+                                                <td><?php echo $row['brand']; ?></td>
+                                                <td><?php echo $row['model']; ?></td>
+                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo $row['wireless-capability']; ?></td>
+                                                <td><?php echo $row['price']; ?></td>
+                                                <td><a href="#">Edit Item</a></td>
+                                                <td><a href="#">Add Item to Quotation</td>
+                                            </tr>
                                             <?php   }
                                                 }   ?>
                                         </tbody>
