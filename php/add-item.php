@@ -12,12 +12,13 @@
 
 	$category = $_POST['category'];
 
-	if($category == "camera"){
-		$cameraImp = implode(",", $cameraCol);
-		$cameraVal = array("'".$_POST['image']."'", "'".$_POST['brand']."'", "'".$_POST['model']."'", "'".$_POST['type']."'", "'".$_POST['c-type']."'", 1, "'".$_POST['specs']."'", "'".$_POST['lens']."'", $_POST['price']);
-		$cameraVal = implode(",", $cameraVal);
-		insertItem($cameraImp, $category, $cameraVal);
-		
+	switch($category){
+		case "camera":
+			$cameraImp = implode(",", $cameraCol);
+			$cameraVal = array("'".$_POST['image']."'", "'".$_POST['brand']."'", "'".$_POST['model']."'", "'".$_POST['type']."'", "'".$_POST['c-type']."'", 1, "'".$_POST['specs']."'", "'".$_POST['lens']."'", $_POST['price']);
+			$cameraVal = implode(",", $cameraVal);
+			insertItem($cameraImp, $category, $cameraVal);
+			break;
 	}
 
 	function insertItem($columns, $category, $cameraValArr){
@@ -27,7 +28,7 @@
 		if(!$result2){
 			die("Error: " . mysqli_error($conn));
 		}else{
-			
+
 			echo "success";
 		}
 	}
