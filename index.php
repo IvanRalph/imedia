@@ -583,7 +583,7 @@
                                                 <td><?php echo $row['brand']; ?></td>
                                                 <td><?php echo $row['model']; ?></td>
                                                 <td><?php echo $row['type']; ?></td>
-                                                <td><?php echo $row['c-type']; ?></td>
+                                                <td><?php echo $row['ctype']; ?></td>
                                                 <td><?php echo $row['poe']; ?></td>
                                                 <td><?php echo $row['specs']; ?></td>
                                                 <td><?php echo $row['lens']; ?></td>

@@ -1,31 +1,34 @@
 <?php
 	include("config.php");
 	
+	$cameraCol = array("image", "brand", "model", "type", "ctype", "poe", "specs", "lens", "price");
+	$accessoriesCol = array("image", "brand", "model", "price");
+	$cableCol = array("image", "brand", "model", "type", "price");
+	$powerCol = array("image", "brand", "model", "channels", "price");
+	$recorderCol = array("image", "brand", "model", "type", "poe", "specs", "ports", "price");
+	$routerCol = array("image", "brand", "model", "wireless-capability", "price");
+	$switchCol = array("image", "brand", "model", "ports", "price");
+	$wirelessCol = array("image", "brand", "model", "frequency", "speed", "price");
 
 	$category = $_POST['category'];
 
 	if($category == "camera"){
-		$column = implode(",", $_POST);
-		insertItem($column, 'camera', '', $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['c-type'], $_POST['poe'], $_POST['specs'], $_POST['lens'], $_POST['price'], '', '', '', '', '', '', '');
+		$cameraImp = implode(",", $cameraCol);
+		$cameraVal = array("'".$_POST['image']."'", "'".$_POST['brand']."'", "'".$_POST['model']."'", "'".$_POST['type']."'", "'".$_POST['c-type']."'", 1, "'".$_POST['specs']."'", "'".$_POST['lens']."'", $_POST['price']);
+		$cameraVal = implode(",", $cameraVal);
+		insertItem($cameraImp, $category, $cameraVal);
 		
 	}
 
-	function insertItem($columnValue, $category, $image, $brand, $model, $type, $cType, $poe, $specs, $lens, $price, $ports, $vcategory, $frequency, $speed, $bands, $capability, $channels){
+	function insertItem($columns, $category, $cameraValArr){
 		include("config.php");
-		$sql = "SELECT * FROM " . $category;
-		$result = mysqli_query($conn, $sql);
-		if(!$result){
-			die("Error: " . mysqli_error($conn));
-		}
-		$columnArray = array();
-		while( $row = mysqli_fetch_assoc($result)){
-    		$columnArray = array($row);
-		}
-		$implodeArray = implode(',', $columnArray);
-		$sql2 = "INSERT INTO ". $category ."(". $implodeArray .") VALUES(". $columnValue .")";
+		$sql2 = "INSERT INTO ". $category ."(". $columns .") VALUES(". $cameraValArr .")";
 		$result2 = mysqli_query($conn, $sql2);
 		if(!$result2){
 			die("Error: " . mysqli_error($conn));
+		}else{
+			
+			echo "success";
 		}
 	}
 ?>

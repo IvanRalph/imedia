@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$("#item-type").change(function(){
+		$('form').trigger("reset");
 		var item_type = $("#item-type").val();
 		if(item_type == "camera"){
 			$("#formCamera").css('display', 'block');
@@ -8,26 +9,26 @@ $(document).ready(function(){
 		} else if(item_type == "none"){
 			$("form").css('display','none');
 		} else if(item_type =="recorder"){
-			$("#form-recorder").css('display','block');
-			$("form:not(#form-recorder)").css('display', 'none');
+			$("#formRecorder").css('display','block');
+			$("form:not(#formRecorder)").css('display', 'none');
 		} else if(item_type == "accessories"){
-			$("#form-accessories").css('display','block');
-			$("form:not(#form-accessories)").css('display', 'none');
+			$("#formAccessories").css('display','block');
+			$("form:not(#formAccessories)").css('display', 'none');
 		} else if(item_type == "cable"){
-			$("#form-cable").css('display','block');
-			$("form:not(#form-cable)").css('display', 'none');
+			$("#formCable").css('display','block');
+			$("form:not(#formCable)").css('display', 'none');
 		} else if(item_type == "switch"){
-			$("#form-switch").css('display','block');
-			$("form:not(#form-switch)").css('display', 'none');
+			$("#formSwitch").css('display','block');
+			$("form:not(#formSwitch)").css('display', 'none');
 		} else if(item_type == "wireless"){
-			$("#form-wireless").css('display','block');
-			$("form:not(#form-wireless)").css('display', 'none');
+			$("#formWireless").css('display','block');
+			$("form:not(#formWireless)").css('display', 'none');
 		} else if(item_type == "router"){
-			$("#form-router").css('display','block');
-			$("form:not(#form-router)").css('display', 'none');
+			$("#formRouter").css('display','block');
+			$("form:not(#formRouter)").css('display', 'none');
 		} else if(item_type == "power"){
-			$("#form-power").css('display','block');
-			$("form:not(#form-power)").css('display', 'none');
+			$("#formPower").css('display','block');
+			$("form:not(#formPower)").css('display', 'none');
 		}
 	});
 
@@ -62,7 +63,8 @@ $(document).ready(function(){
 				data: params,
 				success: function(data, result){
 					if(result == "success"){
-						console.log(data);
+						$('form').trigger("reset");
+						alert("Item added successfully");
 					}
 				}, error: function(jqXHR, error){
 					console.log(params);
