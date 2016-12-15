@@ -539,8 +539,8 @@
                     <div class="card">
                         <div class="container-fluid">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#camera">Camera</a></li>
-                                <li><a data-toggle="tab" href="#recorder">Recorder</a></li>
+                                <li class="active"><a data-toggle="tab" href="#div_camera">Camera</a></li>
+                                <li><a data-toggle="tab" href="#div_recorder">Recorder</a></li>
                                 <li><a data-toggle="tab" href="#accessories">Accessories</a></li>
                                 <li><a data-toggle="tab" href="#cable">Cable</a></li>
                                 <li><a data-toggle="tab" href="#switch">Switch</a></li>
@@ -550,8 +550,8 @@
                             </ul>
 
                             <div class="tab-content">
-                                <div id="camera" class="tab-pane fade in active">
-                                    <table class="table table-striped">
+                                <div id="div_camera" class="tab-pane fade in active">
+                                    <table class="table table-striped" id="camera">
                                         <thead>
                                             <th></th>
                                             <th>ID</th>
@@ -577,18 +577,19 @@
                                                     {
                                             ?>
                                             <tr>
-                                                <td><input type="checkbox" name="checkbox[]" class="form-control" id="checkbox[]"></td>
-                                                <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo "<img src=images/camera/".$row['image'].">" ?></td>
-                                                <td><?php echo $row['brand']; ?></td>
-                                                <td><?php echo $row['model']; ?></td>
-                                                <td><?php echo $row['type']; ?></td>
-                                                <td><?php echo $row['ctype']; ?></td>
-                                                <td><?php echo $row['poe']; ?></td>
-                                                <td><?php echo $row['specs']; ?></td>
-                                                <td><?php echo $row['lens']; ?></td>
-                                                <td><?php echo $row['price']; ?></td>
-                                                <td><a href="#">Edit Item</a></td>
+                                                <td><input type="checkbox" name="checkbox[]" class="form-control" id="checkbox[]" 
+                                                value="<?php echo $row['id']?>"></td>
+                                                <td id="item-id-<?php echo $row['id']; ?>"><?php echo $row['id']; ?></td>
+                                                <td id="item-image-<?php echo $row['id']; ?>"><?php echo "<img src=images/camera/".$row['image'].">" ?></td>
+                                                <td id="item-brand-<?php echo $row['id']; ?>"><?php echo $row['brand']; ?></td>
+                                                <td id="item-model-<?php echo $row['id']; ?>"><?php echo $row['model']; ?></td>
+                                                <td id="item-type-<?php echo $row['id']; ?>"><?php echo $row['type']; ?></td>
+                                                <td id="item-ctype-<?php echo $row['id']; ?>"><?php echo $row['ctype']; ?></td>
+                                                <td id="item-poe-<?php echo $row['id']; ?>"><?php echo $row['poe']; ?></td>
+                                                <td id="item-specs-<?php echo $row['id']; ?>"><?php echo $row['specs']; ?></td>
+                                                <td id="item-lens-<?php echo $row['id']; ?>"><?php echo $row['lens']; ?></td>
+                                                <td id="item-price-<?php echo $row['id']; ?>"><?php echo $row['price']; ?></td>
+                                                <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Edit Item</a></td>
                                                 <td><a href="#">Add Item to Quotation</td>
                                             </tr>
                                             <?php   }
@@ -599,8 +600,8 @@
                             
 
                             
-                                <div id="recorder" class="tab-pane fade">
-                                    <table class="table table-striped">
+                                <div id="div_recorder" class="tab-pane fade">
+                                    <table class="table table-striped" id="recorder">
                                         <thead>
                                             <th></th>
                                             <th>ID</th>
@@ -625,18 +626,19 @@
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]" 
+                                            value="<?php echo $row['id']?>"></td>
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/recorder/".$row['image'].">"?></td>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['type']; ?></td>
-                                            <td><?php echo $row['poe']; ?></td>
-                                            <td><?php echo $row['specs']; ?></td>
-                                            <td><?php echo $row['ports']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
-                                            <td><a href="#">Edit Item</a></td>
+                                            <td id="item-image-<?php $row['id']; ?>"><?php echo "<img src=images/recorder/".$row['image'].">"?></td>
+                                            <td id="item-brand-<?php $row['id']; ?>"><?php echo $row['brand']; ?></td>
+                                            <td id="item-model-<?php $row['id']; ?>"><?php echo $row['model']; ?></td>
+                                            <td id="item-name-<?php $row['id']; ?>"><?php echo $row['name']; ?></td>
+                                            <td id="item-type-<?php $row['id']; ?>"><?php echo $row['type']; ?></td>
+                                            <td id="item-poe-<?php $row['id']; ?>"><?php echo $row['poe']; ?></td>
+                                            <td id="item-specs-<?php $row['id']; ?>"><?php echo $row['specs']; ?></td>
+                                            <td id="item-ports-<?php $row['id']; ?>"><?php echo $row['ports']; ?></td>
+                                            <td id="item-price-<?php $row['id']; ?>"><?php echo $row['price']; ?></td>
+                                            <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Edit Item</a></td>
                                             <td><a href="#">Add Item to Quotation</td>
                                             <?php   }
                                                 }   ?>
@@ -644,8 +646,8 @@
                                     </table>
                                 </div>
 
-                                <div id="accessories" class="tab-pane fade">
-                                    <table class="table table-striped">
+                                <div class="tab-pane fade">
+                                    <table class="table table-striped" id="accessories">
                                         <thead>
                                             <th></th>
                                             <th>ID</th>
@@ -666,14 +668,15 @@
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"
+                                            value="<?php echo $row['id']?>"></td>
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/accessories/".$row['image'] .">" ?></td>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
-                                            <td><a href="#">Edit Item</a></td>
+                                            <td id="item-image-<?php echo $row['id']; ?>"><?php echo "<img src=images/accessories/".$row['image'] .">" ?></td>
+                                            <td id="item-brand-<?php echo $row['id']; ?>"><?php echo $row['brand']; ?></td>
+                                            <td id="item-model-<?php echo $row['id']; ?>"><?php echo $row['model']; ?></td>
+                                            <td id="item-name-<?php echo $row['id']; ?>"><?php echo $row['name']; ?></td>
+                                            <td id="item-price-<?php echo $row['id']; ?>"><?php echo $row['price']; ?></td>
+                                            <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Edit Item</a></td>
                                             <td><a href="#">Add Item to Quotation</td>
                                             <?php   }
                                                 }   ?>
@@ -681,8 +684,8 @@
                                     </table>
                                 </div>
 
-                                <div id="cable" class="tab-pane fade">
-                                    <table class="table table-striped">
+                                <div class="tab-pane fade">
+                                    <table class="table table-striped" id="cable">
                                         <thead>
                                            
                                             <th></th>
@@ -706,15 +709,16 @@
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/cable/".$row['image'].">"?></th>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['type']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
-                                            <td><a href="#">Edit Item</a></td>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]" 
+                                            value="<?php echo $row['id']?>"></td>
+                                            <td id="item-id-<?php echo $row['id']; ?>"><?php echo $row['id']; ?></td>
+                                            <td id="item-image-<?php echo $row['id']; ?>"><?php echo "<img src=images/cable/".$row['image'].">"?></th>
+                                            <td id="item-brand-<?php echo $row['id']; ?>"><?php echo $row['brand']; ?></td>
+                                            <td id="item-model-<?php echo $row['id']; ?>"><?php echo $row['model']; ?></td>
+                                            <td id="item-name-<?php echo $row['id']; ?>"><?php echo $row['name']; ?></td>
+                                            <td id="item-type-<?php echo $row['id']; ?>"><?php echo $row['type']; ?></td>
+                                            <td id="item-price-<?php echo $row['id']; ?>"><?php echo $row['price']; ?></td>
+                                            <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Edit Item</a></td>
                                             <td><a href="#">Add Item to Quotation</td>
                                             <?php   }
                                                 }   ?>
@@ -722,8 +726,8 @@
                                      </table>
                                 </div>
 
-                                <div id="switch" class="tab-pane fade">
-                                    <table class="table table-striped">
+                                <div class="tab-pane fade">
+                                    <table class="table table-striped" id="switch">
                                         <thead>
                                             <th></th>
                                             <th>ID</th>
@@ -745,15 +749,16 @@
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/switch/".$row['image'].">"?></td>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['ports']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
-                                            <td><a href="#">Edit Item</a></td>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"
+                                            value="<?php echo $row['id']?>"></td>
+                                            <td id="item-id-<?php echo $row['id']; ?>"><?php echo $row['id']; ?></td>
+                                            <td id="item-image-<?php echo $row['id']; ?>"><?php echo "<img src=images/switch/".$row['image'].">"?></td>
+                                            <td id="item-brand-<?php echo $row['id']; ?>"><?php echo $row['brand']; ?></td>
+                                            <td id="item-model-<?php echo $row['id']; ?>"><?php echo $row['model']; ?></td>
+                                            <td id="item-name-<?php echo $row['id']; ?>"><?php echo $row['name']; ?></td>
+                                            <td id="item-ports-<?php echo $row['id']; ?>"><?php echo $row['ports']; ?></td>
+                                            <td id="item-price-<?php echo $row['id']; ?>"><?php echo $row['price']; ?></td>
+                                            <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Edit Item</a></td>
                                             <td><a href="#">Add Item to Quotation</td>
                                             <?php   }
                                                 }   ?>
@@ -761,8 +766,8 @@
                                     </table>
                                 </div>
 
-                                <div id="wireless" class="tab-pane fade">
-                                    <table class="table table-striped">
+                                <div class="tab-pane fade">
+                                    <table class="table table-striped" id="wireless">
                                         <thead>
                                             <th></th>
                                             <th>ID</th>
@@ -785,16 +790,17 @@
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/wireless/".$row['image'].">"?></td>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['frequency']; ?></td>
-                                            <td><?php echo $row['speed']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
-                                            <td><a href="#">Edit Item</a></td>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"
+                                            value="<?php echo $row['id']?>"></td>
+                                            <td id="item-id-<?php echo $row['id']?>"><?php echo $row['id']; ?></td>
+                                            <td id="item-image-<?php echo $row['id']?>"><?php echo "<img src=images/wireless/".$row['image'].">"?></td>
+                                            <td id="item-brand-<?php echo $row['id']?>"><?php echo $row['brand']; ?></td>
+                                            <td id="item-model-<?php echo $row['id']?>"><?php echo $row['model']; ?></td>
+                                            <td id="item-name-<?php echo $row['id']?>"><?php echo $row['name']; ?></td>
+                                            <td id="item-frequency-<?php echo $row['id']?>"><?php echo $row['frequency']; ?></td>
+                                            <td id="item-speed-<?php echo $row['id']?>"><?php echo $row['speed']; ?></td>
+                                            <td id="item-price-<?php echo $row['id']?>"><?php echo $row['price']; ?></td>
+                                            <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Edit Item</a></td>
                                             <td><a href="#">Add Item to Quotation</td>
                                             <?php   }
                                                 }   ?>
@@ -802,8 +808,8 @@
                                     </table>
                                 </div>
 
-                                <div id="router" class="tab-pane fade">
-                                    <table class="table table-striped">
+                                <div class="tab-pane fade">
+                                    <table class="table table-striped" id="router">
                                         <thead>
                                             <th></th>
                                             <th>ID</th>
@@ -826,15 +832,16 @@
                                                     {
                                             ?>
                                             <tr>
-                                                <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
-                                                <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo "<img src=images/router/".$row['image'].">"?></td>
-                                                <td><?php echo $row['brand']; ?></td>
-                                                <td><?php echo $row['model']; ?></td>
-                                                <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['wireless-capability']; ?></td>
-                                                <td><?php echo $row['price']; ?></td>
-                                                <td><a href="#">Edit Item</a></td>
+                                                <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"
+                                                value="<?php echo $row['id']?>">></td>
+                                                <td id="item-id-<?php echo $row['id']; ?>"><?php echo $row['id']; ?></td>
+                                                <td id="item-image-<?php echo $row['id']; ?>"><?php echo "<img src=images/router/".$row['image'].">"?></td>
+                                                <td id="item-brand-<?php echo $row['id']; ?>"><?php echo $row['brand']; ?></td>
+                                                <td id="item-model-<?php echo $row['id']; ?>"><?php echo $row['model']; ?></td>
+                                                <td id="item-name-<?php echo $row['id']; ?>"><?php echo $row['name']; ?></td>
+                                                <td id="item-wireless-<?php echo $row['id']; ?>"><?php echo $row['wireless-capability']; ?></td>
+                                                <td id="item-price-<?php echo $row['id']; ?>"><?php echo $row['price']; ?></td>
+                                                <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Edit Item</a></td>
                                                 <td><a href="#">Add Item to Quotation</td>
                                             </tr>
                                             <?php   }
@@ -843,8 +850,8 @@
                                     </table>
                                 </div>
 
-                                <div id="power" class="tab-pane fade">
-                                    <table class="table table-striped">
+                                <div class="tab-pane fade">
+                                    <table class="table table-striped" id="power">
                                         <thead>
                                             <th></th>
                                             <th>ID</th>
@@ -866,16 +873,17 @@
                                                     while($row=mysqli_fetch_array($result))
                                                     {
                                             ?>
-                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"></td>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo "<img src=images/router/".$row['image'].">"?></td>
-                                            <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['model']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['channels']; ?></td>
-                                            <td><?php echo $row['price']; ?></td>
+                                            <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]"
+                                            value="<?php echo $row['id']?>"></td>
+                                            <td id="item-id-<?php echo $row['id']; ?>"><?php echo $row['id']; ?></td>
+                                            <td id="item-image-<?php echo $row['id']; ?>"><?php echo "<img src=images/router/".$row['image'].">"?></td>
+                                            <td id="item-brand-<?php echo $row['id']; ?>"><?php echo $row['brand']; ?></td>
+                                            <td id="item-model-<?php echo $row['id']; ?>"><?php echo $row['model']; ?></td>
+                                            <td id="item-name-<?php echo $row['id']; ?>"><?php echo $row['name']; ?></td>
+                                            <td id="item-channels-<?php echo $row['id']; ?>"><?php echo $row['channels']; ?></td>
+                                            <td id="item-price-<?php echo $row['id']; ?>"><?php echo $row['price']; ?></td>
                                             <td><a href="#">Edit Item</a></td>
-                                            <td><a href="#">Add Item to Quotation</td>
+                                            <td><a href="#" data-target="#edit-modal" data-target="modal" onClick="editClick(this.id);" id="<?php echo $row['id']; ?>">Add Item to Quotation</td>
                                             <?php   }
                                                 }   ?>
                                         </tbody>
@@ -884,8 +892,8 @@
                             </div> <!--End Of Tab Content-->
                         </div>
                     </div><!--End Of Tab Card-->
-                    <button type="button" class="btn btn-primary" id="add-item" data-toggle="modal" data-target=".bs-example-modal-lg">Add Item</button>
-                    <button type="button" class="btn btn-error" id="delete-item">Delete Item</button>
+                    <button type="button" class="btn btn-primary" id="add-item" data-toggle="modal" data-target=".bs-example-modal-lg" name="add">Add Item</button>
+                    <button type="button" class="btn btn-error" id="delete" name="delete">Delete Item</button>
                 </div>
             </div>
         </div>
@@ -948,6 +956,50 @@
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
+
+
+    <script>
+
+        $("#delete").click(function(){
+            if($('input[name="checkbox[]"]:checked').length > 0){
+                var currentTab = $('.nav-tabs .active').text();
+                var tab = currentTab.toLowerCase();
+                var check = $("#"+tab+" input:checkbox:checked").map(function(){
+                    return this.value;
+                }).toArray(); 
+                alert(check);
+
+                $.ajax({
+                    url: "php/delete.php",
+                    type: "POST",
+                    data: {"tab":tab,"checkbox":check
+                    },
+                    success: function(data, result){
+                        console.log("success");
+                            alert("success");
+                            $("#div_"+tab).load(document.URL + " #div_"+tab);
+                    }, 
+                    error: function (xhr, status, error, data, exception, result){
+                        alert(exception);
+                        console.log(error);
+                        console.log(xhr);
+                        console.log(status);
+                        alert(xhr);
+                        alert(status);
+                        alert(error);
+                    }
+                });
+            } else {
+                //validation error
+                alert("error");
+            }
+        });
+
+        function editClick(id){
+
+        }
+
+    </script>
 
 
 </html>
