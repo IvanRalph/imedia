@@ -541,12 +541,12 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#div_camera">Camera</a></li>
                                 <li><a data-toggle="tab" href="#div_recorder">Recorder</a></li>
-                                <li><a data-toggle="tab" href="#accessories">Accessories</a></li>
-                                <li><a data-toggle="tab" href="#cable">Cable</a></li>
-                                <li><a data-toggle="tab" href="#switch">Switch</a></li>
-                                <li><a data-toggle="tab" href="#wireless">Wireless</a></li>
-                                <li><a data-toggle="tab" href="#router">Router</a></li>
-                                <li><a data-toggle="tab" href="#power">Power Supply</a></li>
+                                <li><a data-toggle="tab" href="#div_accessories">Accessories</a></li>
+                                <li><a data-toggle="tab" href="#div_cable">Cable</a></li>
+                                <li><a data-toggle="tab" href="#div_switch">Switch</a></li>
+                                <li><a data-toggle="tab" href="#div_wireless">Wireless</a></li>
+                                <li><a data-toggle="tab" href="#div_router">Router</a></li>
+                                <li><a data-toggle="tab" href="#div_power">Power Supply</a></li>
                             </ul>
 
                             <div class="tab-content">
@@ -646,7 +646,7 @@
                                     </table>
                                 </div>
 
-                                <div class="tab-pane fade">
+                                <div id="div_accessories" class="tab-pane fade">
                                     <table class="table table-striped" id="accessories">
                                         <thead>
                                             <th></th>
@@ -684,7 +684,7 @@
                                     </table>
                                 </div>
 
-                                <div class="tab-pane fade">
+                                <div id="div_cable" class="tab-pane fade">
                                     <table class="table table-striped" id="cable">
                                         <thead>
                                            
@@ -726,7 +726,7 @@
                                      </table>
                                 </div>
 
-                                <div class="tab-pane fade">
+                                <div id="div_switch" class="tab-pane fade">
                                     <table class="table table-striped" id="switch">
                                         <thead>
                                             <th></th>
@@ -766,7 +766,7 @@
                                     </table>
                                 </div>
 
-                                <div class="tab-pane fade">
+                                <div id="div_wireless" class="tab-pane fade">
                                     <table class="table table-striped" id="wireless">
                                         <thead>
                                             <th></th>
@@ -808,7 +808,7 @@
                                     </table>
                                 </div>
 
-                                <div class="tab-pane fade">
+                                <div id="div_router" class="tab-pane fade">
                                     <table class="table table-striped" id="router">
                                         <thead>
                                             <th></th>
@@ -850,7 +850,7 @@
                                     </table>
                                 </div>
 
-                                <div class="tab-pane fade">
+                                <div id="div_power" class="tab-pane fade">
                                     <table class="table table-striped" id="power">
                                         <thead>
                                             <th></th>
@@ -967,7 +967,6 @@
                 var check = $("#"+tab+" input:checkbox:checked").map(function(){
                     return this.value;
                 }).toArray(); 
-                alert(check);
 
                 $.ajax({
                     url: "php/delete.php",
@@ -979,16 +978,11 @@
                             alert("success");
                             $("#div_"+tab).load(document.URL + " #div_"+tab);
                     }, 
-                    error: function (xhr, status, error, data, exception, result){
-                        alert(exception);
-                        console.log(error);
-                        console.log(xhr);
-                        console.log(status);
-                        alert(xhr);
-                        alert(status);
+                    error: function (error){
                         alert(error);
                     }
                 });
+
             } else {
                 //validation error
                 alert("error");
@@ -996,7 +990,7 @@
         });
 
         function editClick(id){
-
+            
         }
 
     </script>
