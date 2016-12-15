@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$('form').trigger("reset");
 	$("#item-type").change(function(){
 		$('form').trigger("reset");
 		var item_type = $("#item-type").val();
@@ -33,30 +34,51 @@ $(document).ready(function(){
 	});
 
 	$("#add").click(function(){
-		// var cameraBrand = $("#form-camera input[name=brand]").val();
-		// var cameraModel = $("#form-camera input[name=model]").val();
-		// var cameraType = $("#form-camera input[name=type]").val();
-		// var cameraCType = $("#form-camera input[name=c-type]").val();	
-		// var cameraPOE = $("#form-camera input[name=poe]").val();
-		// var cameraSpecs = $("#form-camera input[name=specs]").val();
-		// var cameraLens = $("#form-camera input[name=lens]").val();
-		// var cameraPrice = $("#form-camera input[name=price]").val();
-
 		var category = $("#item-type").val();
+		var formId = $("#item-type").attr('id');
+		var formName = capitalizeFirstLetter(category);
 		// var formCamera = "category="+ category +"&brand=" + cameraBrand + "&model=" + cameraModel + "&type=" + cameraType + "&cType=" + cameraCType + "&poe=" + cameraPOE + "&specs=" + cameraSpecs + "&lens=" + cameraLens + "&price=" + cameraPrice;
 		
-		var params = '';
+		var params = $('#form'+formName).serialize();
+		params += '&category=' + category + '&image=' + $("#form"+ formName +" input[name=image]").val();
 
-		for( var i = 0; i < document.formCamera.elements.length; i++ ){
-			var fieldName = document.formCamera.elements[i].name;
-			var fieldValue = document.formCamera.elements[i].value;
+		console.log(params);
+		console.log(formName);
 
-			params += fieldName + '=' + fieldValue + '&';
+		switch(category){
+			case "camera":
+				addItem(params);
+				break;
+			case "recorder":
+				addItem(params);
+				break;
+			case "accessories":
+				addItem(params);
+				break;
+			case "cable":
+				addItem(params);
+				break;
+			case "switch":
+				addItem(params);
+				break;
+			case "wireless":
+				addItem(params);
+				break;
+			case "router":
+				addItem(params);
+				break;
+			case "power":
+				addItem(params);
+				break;
+			default:
+				alert("Please select item type before adding...");
+				break;
 		}
 
-		params += 'category=' + category; 
+		var currentTab = $('.nav-tabs .active').text();
+		var tab = currentTab.toLowerCase();
 
-		if(category == "camera"){
+		function addItem(params){
 			$.ajax({
 				url: "php/add-item.php",
 				type: "post",
@@ -64,7 +86,8 @@ $(document).ready(function(){
 				success: function(data, result){
 					if(result == "success"){
 						$('form').trigger("reset");
-						alert("Item added successfully");
+						$("#myModal").modal('hide');
+						alert("Item added successfully, please refresh page to see result..");
 					}
 				}, error: function(jqXHR, error){
 					console.log(params);
@@ -73,6 +96,10 @@ $(document).ready(function(){
 					console.log(error);
 				}
 			});
+		}
+
+		function capitalizeFirstLetter(string) {
+		    return string.charAt(0).toUpperCase() + string.slice(1);
 		}
 	});
 });
