@@ -13,14 +13,26 @@
 	$category = $_POST['category'];
 	switch($category){
 		case "camera":
+		$poeName = 0;
+		if($_POST['poeName'] == "yes"){
+			$poeName = 1;
+		}else{
+			$poeName = 0;
+		}
 			$cameraImp = implode(",", $cameraCol);
-			$cameraVal = array("'".$_POST['image']."'", "'".$_POST['brand']."'", "'".$_POST['model']."'", "'".$_POST['type']."'", "'".$_POST['c-type']."'", 1, "'".$_POST['specs']."'", "'".$_POST['lens']."'", $_POST['price']);
+			$cameraVal = array("'".$_POST['image']."'", "'".$_POST['brand']."'", "'".$_POST['model']."'", "'".$_POST['type']."'", "'".$_POST['c-type']."'", $poeName, "'".$_POST['specs']."'", "'".$_POST['lens']."'", $_POST['price']);
 			$cameraVal = implode(",", $cameraVal);
 			insertItem($cameraImp, $category, $cameraVal);
 			break;
 		case "recorder":
+			$poeName = 0;
+			if($_POST['poeName'] == "yes"){
+				$poeName = 1;
+			}else{
+				$poeName = 0;
+			}
 			$recorderImp = implode(",", $recorderCol);
-			$recorderVal = array("'".$_POST['image']."'", "'".$_POST['brand']."'", "'".$_POST['model']."'", "'".$_POST['type']."'", 1, "'".$_POST['specs']."'", "'".$_POST['ports']."'", $_POST['price']);
+			$recorderVal = array("'".$_POST['image']."'", "'".$_POST['brand']."'", "'".$_POST['model']."'", "'".$_POST['type']."'", $poeName, "'".$_POST['specs']."'", "'".$_POST['ports']."'", $_POST['price']);
 			$recorderVal = implode(",", $recorderVal);
 			insertItem($recorderImp, $category, $recorderVal);
 			break;

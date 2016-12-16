@@ -112,8 +112,8 @@
 
                             <div class="form-group">
                                 <label>POE:</label>
-                                <input type="radio" class="radio-inline" name="poe" id="poe">Yes
-                                <input type="radio" class="radio-inline" name="poe" id="poe">No
+                                <input type="radio" class="radio-inline" name="poe" id="poe" value="yes">Yes
+                                <input type="radio" class="radio-inline" name="poe" id="poe" value="no">No
                             </div>
 
                             <div class="form-group">
@@ -503,6 +503,11 @@
                                                 {
                                                     while($row=mysqli_fetch_array($result))
                                                     {
+                                                        if($row['poe'] == 1){
+                                                            $read = "Yes";
+                                                        }else{
+                                                            $read = "No";
+                                                        }
                                             ?>
                                             <tr>
                                                 <td><input type="checkbox" name="checkbox[]" class="form-control" id="checkbox[]" 
@@ -513,7 +518,7 @@
                                                 <td id="item-model-<?php echo $row['id']; ?>"><?php echo $row['model']; ?></td>
                                                 <td id="item-type-<?php echo $row['id']; ?>"><?php echo $row['type']; ?></td>
                                                 <td id="item-ctype-<?php echo $row['id']; ?>"><?php echo $row['ctype']; ?></td>
-                                                <td id="item-poe-<?php echo $row['id']; ?>"><?php echo $row['poe']; ?></td>
+                                                <td id="item-poe-<?php echo $row['id']; ?>"><?php echo $read; ?></td>
                                                 <td id="item-specs-<?php echo $row['id']; ?>"><?php echo $row['specs']; ?></td>
                                                 <td id="item-lens-<?php echo $row['id']; ?>"><?php echo $row['lens']; ?></td>
                                                 <td id="item-price-<?php echo $row['id']; ?>"><?php echo $row['price']; ?></td>
@@ -553,6 +558,11 @@
                                                 {
                                                     while($row=mysqli_fetch_array($result))
                                                     {
+                                                        if($row['poe'] == 1){
+                                                            $read = "Yes";
+                                                        }else{
+                                                            $read = "No";
+                                                        }
                                             ?>
                                             <tr>
                                                 <td><input type="checkbox" class="form-control" id="checkbox[]" name="checkbox[]" 
@@ -563,7 +573,7 @@
                                                 <td id="item-model-<?php $row['id']; ?>"><?php echo $row['model']; ?></td>
                                                 <td id="item-name-<?php $row['id']; ?>"><?php echo $row['name']; ?></td>
                                                 <td id="item-type-<?php $row['id']; ?>"><?php echo $row['type']; ?></td>
-                                                <td id="item-poe-<?php $row['id']; ?>"><?php echo $row['poe']; ?></td>
+                                                <td id="item-poe-<?php $row['id']; ?>"><?php echo $read; ?></td>
                                                 <td id="item-specs-<?php $row['id']; ?>"><?php echo $row['specs']; ?></td>
                                                 <td id="item-ports-<?php $row['id']; ?>"><?php echo $row['ports']; ?></td>
                                                 <td id="item-price-<?php $row['id']; ?>"><?php echo $row['price']; ?></td>
@@ -841,28 +851,8 @@
 
         <footer class="footer">
             <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-
-                        <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://blog.creative-tim.com">
-                               Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.creative-tim.com/license">
-                                Licenses
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
                 <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script> iMedia Security Solutions
                 </div>
             </div>
         </footer>

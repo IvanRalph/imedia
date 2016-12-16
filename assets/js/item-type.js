@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	$('form').trigger("reset");
+	var category = $("#item-type").val();
+	var formName = capitalizeFirstLetter(category);
 	$("#item-type").change(function(){
 		$('form').trigger("reset");
 		var item_type = $("#item-type").val();
@@ -34,16 +36,15 @@ $(document).ready(function(){
 	});
 
 	$("#add").click(function(){
-		var category = $("#item-type").val();
 		var formId = $("#item-type").attr('id');
-		var formName = capitalizeFirstLetter(category);
 		// var formCamera = "category="+ category +"&brand=" + cameraBrand + "&model=" + cameraModel + "&type=" + cameraType + "&cType=" + cameraCType + "&poe=" + cameraPOE + "&specs=" + cameraSpecs + "&lens=" + cameraLens + "&price=" + cameraPrice;
-		
+		var poeName = $("#form"+ formName +" input:radio[name='poe']:checked").val();
 		var params = $('#form'+formName).serialize();
-		params += '&category=' + category + '&image=' + $("#form"+ formName +" input[name=image]").val();
+		params += '&category=' + category + '&image=' + $("#form"+ formName +" input[name=image]").val() + "&poeName=" + poeName;
 
 		console.log(params);
 		console.log(formName);
+		console.log(poeName);
 
 		switch(category){
 			case "camera":
@@ -97,9 +98,27 @@ $(document).ready(function(){
 				}
 			});
 		}
+	});
 
-		function capitalizeFirstLetter(string) {
-		    return string.charAt(0).toUpperCase() + string.slice(1);
-		}
+	function capitalizeFirstLetter(string) {
+	    return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	$("#form"+ formName +" input[name=image]").change(function(){
+		var uploadedImage = "image="+ $("#form"+ formName +" input[name=image]").val() + "&category="+category;
+		$.ajax({
+			url: "php/add-image.php",
+			type: "post",
+			data: uploadedImage,
+			success: function(data, result){
+				if(result != "success"){
+					alert(data);
+				}
+			},error: function(jqXHR, error){
+				console.log("Error");
+				console.log("Status: " + jqXHR.status);
+				console.log(error);
+			}
+		});
 	});
 });

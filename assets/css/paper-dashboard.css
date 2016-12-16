@@ -1250,7 +1250,7 @@ textarea.form-control {
   background-color: #fff;
 }
 .table-striped tbody > tr:nth-of-type(2n) {
-  background-color: #FFFCF5;
+  background-color: #f3f3f3;
 }
 .table-striped > thead > tr > th,
 .table-striped > tbody > tr > th,
