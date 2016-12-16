@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2016 at 11:21 AM
+-- Generation Time: Dec 16, 2016 at 06:59 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -40,7 +40,8 @@ CREATE TABLE `accessories` (
 --
 
 INSERT INTO `accessories` (`id`, `image`, `brand`, `model`, `name`, `price`) VALUES
-(1, 'video-balun.jpg', 'N/A', 'VB-2VS', 'Video Balun', 20);
+(1, 'video-balun.jpg', 'N/A', 'VB-2VS', 'Video Balun', 20),
+(2, 'unnamed.png', 'asdasd', 'asdasdasd', '', 123123123);
 
 -- --------------------------------------------------------
 
@@ -63,8 +64,7 @@ CREATE TABLE `cable` (
 --
 
 INSERT INTO `cable` (`id`, `image`, `brand`, `model`, `name`, `type`, `price`) VALUES
-(1, 'sample.jpg', 'Belden', 'cat5e', 'utp cable', 'utp', 1000),
-(4, 'unnamed.png', 'asdasd', 'asdasdsadasd', '', 'NVR', 290999);
+(1, 'sample.jpg', 'Belden', 'cat5e', 'utp cable', 'utp', 1000);
 
 -- --------------------------------------------------------
 
@@ -273,17 +273,17 @@ ALTER TABLE `wireless`
 -- AUTO_INCREMENT for table `accessories`
 --
 ALTER TABLE `accessories`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cable`
 --
 ALTER TABLE `cable`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `camera`
 --
 ALTER TABLE `camera`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `power`
 --
@@ -298,7 +298,7 @@ ALTER TABLE `recorder`
 -- AUTO_INCREMENT for table `router`
 --
 ALTER TABLE `router`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `switch`
 --
